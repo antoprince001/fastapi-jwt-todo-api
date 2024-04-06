@@ -1,0 +1,5 @@
+docker images | grep "^your_image_name" | awk '{print $1":"$2}' | xargs -I {} docker rmi {}
+
+docker build -t fastapi_todo .
+
+docker run -d --name fast_api_container -p 80:80 fastapi_todo
